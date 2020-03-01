@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+    background: url('assets/images/circles-light.png') repeat  ;
+}
+
+.title {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 34px;
+    color: #333;
+    margin: 40px 0;
+}
+.w-btn {
+    width: 250px;;
+}
+.jumbotron {
+    padding: 10px !important;
+}
+
+.col-md-12 ,.col-12{
+    padding: 0px !important;
+}
+.navbar-brand {
+    font-size: 1.55rem !important;
+}

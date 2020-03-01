@@ -1,0 +1,55 @@
+<div class="container mx-auto mt-5">
+   <div class="ajoutere mb-2">
+    <button  (click)="addContact()" type="button"  prevent-default *ngIf="!ajoutForm " class="btn btn-success">
+       <i class="fa fa-plus"></i>   Ajouter un Article</button>
+   </div>
+   <div class="col-md-12 " *ngIf="showAjout">
+    <form  #f="ngForm" (ngSubmit)="submit(f)">
+      <div class="form-row">
+        <div class=" col-12 form-group">
+          <label for="exampleFormControlTextarea1">Ecrire un article :</label>
+          <textarea class="form-control" [(ngModel)]="myContacts.body" #body="ngModel" ngModel name="body" id="body" rows="3"></textarea>
+        </div>
+        
+  <div class="form-group">
+  <button type="submit"   [disabled]="!f.valid"   *ngIf="!editForm" class=" w-btn btn btn-primary  mt-2 mb-2 "> <i class="fa fa-send"></i> Ajouter</button>
+  <button  (click)="updateContact()" *ngIf="editForm" type="button" class="btn btn-warning ml-3"> <i class="fa fa-refresh"></i>   Modifier</button>
+</div>
+      </div>
+    </form>
+   </div>
+      <div class="col-md-12">
+        <h4>Listes des articles :</h4>
+        <div class="liste" *ngFor="let post of posts">
+          
+  
+          <div class="content">
+  
+            <div class="jumbotron alert-info">
+              {{post.body}}
+  
+  <div class="taritement mt-2">
+    <hr>
+    <button [routerLink]="['/comment', post.id, post.body]" 
+    type="button"  
+    (click)="getComment()"
+     class="btn btn-dark btn-sm mr-1">
+      <i class="fa fa-plus"></i> 
+      Ajouter un commentaire
+    </button> 
+
+
+    <button type="button" (click)="editContact(post)" class="btn btn-warning btn-sm mr-1"> <i class="fa fa-pencil"></i>   Modifier l'article </button>
+    <button type="button" (click)="SupprimContact(post.id)" class="btn btn-danger btn-sm  mr-1"><i class="fa fa-trash"></i> Supprimer l'article</button>
+    
+  </div>
+             
+            </div>
+          
+          </div>
+   
+        </div>
+      </div>
+</div>
+
+
